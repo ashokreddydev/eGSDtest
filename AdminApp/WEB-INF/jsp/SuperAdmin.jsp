@@ -3018,7 +3018,8 @@ $(document).ready(function () {
     margin-top: -21px;
 ">
       <ul class="tabs tabs-left"style="margin-top: 45px;">
-        <li class="tab col s12"><a class="active" href="#test111"style="color:white !important">Hotel Details</a></li>
+        <li class="tab col s12"><a class="active" title="Account Management" href="#testAccount"style="color:white !important"> Account Management </a></li>
+        <li class="tab col s12"><a href="#test111"style="color:white !important">Hotel Details</a></li>
        <!--  <li class="tab col s12"><a href="#test22"style="color:white !important">Group Site ID</a></li> -->
         <li class="tab col s12"><a href="#test33"style="color:white !important">Address</a></li>
         <li class="tab col s12"><a href="#test44"style="color:white !important" >Content</a></li> 
@@ -3031,6 +3032,107 @@ $(document).ready(function () {
  -->       
       </ul>
     </div>
+    
+    
+    <div id="testAccount" class="col s10"style="margin-top: 40px;">
+    	
+    	<div class="row">
+    	
+    		<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.objectId }" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory ID</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.name}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory Name</label>
+			</div>
+			
+			<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.templateId}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Source Template ID</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.templateName}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Source Template Name</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">
+    	
+    		<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.createdDate}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory Creation Date</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="${locObjForEditLocation.updatedDate}" class="" name="" disabled> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Directory Last Modified Date</label>
+			</div>
+			
+			<div class="input-field col s3">
+				<label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Billing Cycle</label>
+				<select name="hotelBillingCycle" id="hotelBillingCycle" class="browser-default">
+				<c:if test="${locObjForEditLocation.hotelBillingCycle ne null}">
+					<option value="${locObjForEditLocation.hotelBillingCycle}">${locObjForEditLocation.hotelBillingCycle}</option>
+				</c:if>
+					<option value="Monthly">Monthly</option>
+					<option value="Quarterly">Quarterly</option>
+					<option value="Annual">Annual</option>
+				</select>
+			</div>
+			
+			<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id="hotelBillingRate"  value="${locObjForEditLocation.hotelBillingRate}" class="hotelBillingRate" name="hotelBillingRate"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Billing Rate</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">
+    	
+    		<div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="" class="" name=""> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Payments System ID</label>
+			</div>
+												
+ 	        <div class="input-field col s3">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id=""  value="" class="" name=""> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Account Paid Through Date</label>
+			</div>		
+    	
+    	</div>
+    	
+    	<div class="row">  
+    	
+    		<div class="input-field col s12">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id="hotelPaymentConcat"  value="" class="" name="hotelPaymentConcat"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Payment Contact</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">  
+    	
+    		<div class="input-field col s12">
+				<input type="text" style="font-weight: normal; font-size: 14px"  id="hotelNotes"  value="" class="" name="hotelNotes"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Notes</label>
+			</div>
+    	
+    	</div>
+    	
+    	<div class="row">  
+    	
+    		<c:if test="${locObjForEditLocation.hotelActiveAccount}">			
+				<input type="checkbox" id="checkboxForAccountActivation" value="checkboxForAccountActivation" name="hotelActiveAccount" style="display:none" checked/>
+			</c:if>
+			
+			<c:if test="${!locObjForEditLocation.hotelActiveAccount}">			
+				<input type="checkbox" id="checkboxForAccountActivation" value="checkboxForAccountActivation" name="hotelActiveAccount" style="display:none" />
+			</c:if>		
+    		
+            <label for="checkboxForAccountActivation" style="font-size:14px;padding-left:35px !important;">Active Account</label>
+    	
+    	</div>
+    	
+    	
+    	
+    	
+    		
+    </div>
+    
+    
     <div id="test111" class="col s10"style="margin-top: 40px;">
     	<div class="row">
 												<div class="input-field col s3" style="display: none">
@@ -3150,7 +3252,7 @@ $(document).ready(function () {
 		</div>
 		
 		
-		<div row>
+		<div >
 		
 												<div class="input-field col s3" style="margin-left: -16px;">
 													<input type="text" style="font-weight: normal; font-size: 14px" required=""  id="dirCaption" name="siteIdName" value="${locObjForEditLocation.siteId}"> <label style="font-weight: normal; font-size: 14px;margin-left:-7px;" class="active">Group Site ID</label>
@@ -7773,7 +7875,7 @@ $('#updateAdminUser').click(function(){
 						     
 						      success :function(result) {
 						    	  $(".searchResults").empty();
-						    	  
+						    	  sortHotelsList = result;
 						    	  console.log(result.length);
 						    	  if(result.length == 0)
 						    	  {					    		  
@@ -7784,14 +7886,14 @@ $('#updateAdminUser').click(function(){
 						    	  {
 						    		  $('.noResults').empty();
 						    		  $('.tbody').remove();
-							    	  var tableDetails = "<tr>"+
-										"<td style='padding: 6px 0px 0px 0px;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Name</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Id</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Group Site ID</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Zip/Postal Code</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Group Name</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Admin</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Email</b></td>"+
+						    		  var tableDetails = "<tr>"+
+										"<td style='padding: 6px 0px 0px 0px;text-align:center' onclick='hotelsSortOrder(this.id)' id='name'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Name</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='hotelId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Id</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Site ID</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='zipcode'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Zip/Postal Code</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Name</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='adminName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Admin</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='email'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Email</b></td>"+
 										"</tr>";
 							    	  for(var i=0;i<result.length;i++)
 							    	  {
@@ -7843,7 +7945,7 @@ $('#updateAdminUser').click(function(){
 							    		  
 							    	  }
 							    	  console.log(tableDetails);
-							    	  $(".searchResults").append(tableDetails);
+							    	  $(".searchResults").append("<tbody style='font-size:14px'>"+tableDetails+"</tbody>");
 							    	  $('.mbody').hide();
 						    	  }    	  
 						     },
@@ -7879,7 +7981,7 @@ $('#updateAdminUser').click(function(){
 					     
 					      success :function(result) {
 					    	  $(".searchResults").empty();
-					    	  
+					    	  sortHotelsList = result;
 					    	  console.log(result.length);
 					    	  if(result.length == 0)
 					    	  {					    		  
@@ -7890,14 +7992,14 @@ $('#updateAdminUser').click(function(){
 					    	  {
 					    		  $('#noResults').empty();
 					    		  $('#tbody').remove();
-						    	  var tableDetails = "<tr>"+
-									"<td style='padding: 10px 0''><b style='color:#337ab7;font-size:18px'>Hotel Name</b></td>"+
-									"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Hotel Id</b></td>"+
-									"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Group Site ID</b></td>"+
-									"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Zip/Postal Code</b></td>"+
-									"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Group Name</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Admin</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Email</b></td>"+
+					    		  var tableDetails = "<tr>"+
+									"<td style='padding: 6px 0px 0px 0px;text-align:center' onclick='hotelsSortOrder(this.id)' id='name'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Name</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='hotelId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Id</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Site ID</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='zipcode'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Zip/Postal Code</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Name</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='adminName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Admin</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='email'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Email</b></td>"+
 									"</tr>";
 						    	  for(var i=0;i<result.length;i++)
 						    	  {
@@ -7915,41 +8017,41 @@ $('#updateAdminUser').click(function(){
 						    		  }
 						    		  
 						    		  var table = "<tr>"+
-											"<td style='padding: 10px 0'> <a onclick='loading()' style='color:#337ab7' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"'>"+
-											""+result[i].name+""+
-											"</a>"+
-											"</td>"+
-											"<td style='padding:10px 0'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
-											""+result[i].hotelId+""+
-											"</a>"+
-											"</td>"+
-											"<td style='padding:10px 0'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
-											""+result[i].groupId+""+
-											"</a>"+
-											"</td>"+
-											"<td style='padding:10px 0'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
-											""+result[i].zipcode+""+
-											"</a>"+
-											"</td>"+
-											"<td style='padding:10px 0'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
-											""+result[i].groupName+""+
-											"</a>"+
-											"</td>"+
-											"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
-											""+result[i].adminName+""+
-											"</a>"+
-											"</td>"+
-											"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
-											""+result[i].email+""+
-											"</a>"+
-											"</td>"+
-										"</tr>";
-						    		  tableDetails = tableDetails+table;
-						    		  
-						    	  }
-						    	  console.log(tableDetails);
-						    	  $(".searchResults").append(tableDetails);
-						    	  $('.mbody').hide();
+										"<td style='padding: 6px 0px 0px 0px;text-align:center'> <a onclick='loading()' style='color:#337ab7' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"'>"+
+										""+result[i].name+""+
+										"</a>"+
+										"</td>"+
+										"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+										""+result[i].hotelId+""+
+										"</a>"+
+										"</td>"+
+										"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+										""+result[i].groupId+""+
+										"</a>"+
+										"</td>"+
+										"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+										""+result[i].zipcode+""+
+										"</a>"+
+										"</td>"+
+										"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+										""+result[i].groupName+""+
+										"</a>"+
+										"</td>"+
+										"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+										""+result[i].adminName+""+
+										"</a>"+
+										"</td>"+
+										"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+										""+result[i].email+""+
+										"</a>"+
+										"</td>"+
+									"</tr>";
+					    		  tableDetails = tableDetails+table;
+					    		  
+					    	  }
+					    	  console.log(tableDetails);
+					    	  $(".searchResults").append("<tbody style='font-size:14px'>"+tableDetails+"</tbody>");
+					    	  $('.mbody').hide();
 					    	  }
 					    	 
 					    	  
@@ -7986,7 +8088,7 @@ $('#updateAdminUser').click(function(){
 					     
 					      success :function(result) {
 					    	  $("#templateSearchResults").empty();
-					    	  
+					    	  sortTemplatesList = result;
 					    	  console.log(result.length);
 					    	  if(result.length == 0)
 					    	  {					    		  
@@ -7997,10 +8099,10 @@ $('#updateAdminUser').click(function(){
 					    	  {
 					    		  $('#noTemplateResults').empty();
 					    		  $('#templateSpin').remove();
-						    	  var tableDetails = "<tr>"+
-										"<td style='padding:10px 0 0 30px;'><b style='color:#337ab7;font-size:18px'>Template Name</b></td>"+
-										"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Template Id</b></td>"+
-									"</tr>";
+					    		  var tableDetails = "<tr>"+
+									"<td style='padding:10px 0 0 30px;' onclick='templatesSortOrder(this.id)' id='templateName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Name</b></td>"+
+									"<td style='padding:10px 0' onclick='templatesSortOrder(this.id)' id='templateId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Id</b></td>"+
+								"</tr>";
 						    	  for(var i=0;i<result.length;i++)
 						    	  {
 						    		  var table = "<tr>"+
@@ -8095,554 +8197,9 @@ $('#updateAdminUser').click(function(){
 			    
 			});
 			
-			
-			
-			
-			
-			
-			 /* $('#quantity0000').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v1 == v2 || v1 === v3 || v1 == v4 || v1 == v5 || v1 == v6 || v1 == v7 || v1 == v8 || v1 == v9)
-			    		{
-			    		
-			    		$('#quantity0000').val('');
-			    		 $('#dvPa1').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa1').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			
-		
-			    $('#quantity0001').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v2 == v1 || v2 === v3 || v2 == v4 || v2 == v5 || v2 == v6 || v2 == v7 || v2 == v8 || v2 == v9)
-			    		{
-			    		
-			    		$('#quantity0001').val('');
-			    		 $('#dvPa2').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa2').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			     $('#quantity0002').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v3 == v1 || v3 === v2 || v3 == v4 || v3 == v5 || v3 == v6 || v3 == v7 || v3 == v8 || v3 == v9)
-			    		{
-			    		
-			    		$('#quantity0002').val('');
-			    		 $('#dvPa3').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa3').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			    $('#quantity0003').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v4 == v1 || v4 === v2 || v4 == v3 || v4 == v5 || v4 == v6 || v4 == v7 || v4 == v8 || v4 == v9)
-			    		{
-			    		
-			    		$('#quantity0003').val('');
-			    		 $('#dvPa4').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa4').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			    $('#quantity0004').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v5 == v1 || v5 === v2 || v5 == v3 || v5 == v4 || v5 == v6 || v5 == v7 || v5 == v8 || v5 == v9)
-			    		{
-			    		
-			    		$('#quantity0004').val('');
-			    		 $('#dvPa5').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa5').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    $('#quantity0005').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v6 == v1 || v6 === v2 || v6 == v3 || v6 == v4 || v6 == v5 || v6 == v7 || v6 == v8 || v6 == v9)
-			    		{
-			    		
-			    		$('#quantity0005').val('');
-			    		 $('#dvPa6').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa6').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			     $('#quantity0006').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v7 == v1 || v7 === v2 || v7 == v3 || v7 == v4 || v7 == v5 || v7 == v6 || v7 == v8 || v7 == v9)
-			    		{
-			    		
-			    		$('#quantity0006').val('');
-			    		 $('#dvPa7').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa7').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			     $('#quantity0007').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v8 == v1 || v8 === v2 || v8 == v3 || v8 == v4 || v8 == v5 || v8 == v6 || v8 == v7 || v8 == v9)
-			    		{
-			    		
-			    		$('#quantity0007').val('');
-			    		 $('#dvPa8').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa8').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			     $('#quantity0008').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity0001').val();
-			    	var v3 = $('#quantity0002').val();
-			    	var v4 = $('#quantity0003').val();
-			    	var v5 = $('#quantity0004').val();
-			    	var v6 = $('#quantity0005').val();
-			    	var v7 = $('#quantity0006').val();
-			    	var v8 = $('#quantity0007').val();
-			    	var v9 = $('#quantity0008').val();
-			    	
-			    	
-			    	
-			    	if(v9 == v1 || v9 === v2 || v9 == v3 || v9 == v4 || v9 == v5 || v9 == v6 || v9 == v7 || v9 == v8)
-			    		{
-			    		
-			    		$('#quantity0008').val('');
-			    		 $('#dvPa9').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa9').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    $('#quantity1').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v1 == v2 || v1 === v3 || v1 == v4 || v1 == v5 || v1 == v6 || v1 == v7 || v1 == v8 || v1 == v9)
-			    		{
-			    		
-			    		$('#quantity1').val('');
-			    		 $('#dvPa11').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa11').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			
-		
-			    $('#quantity2').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v2 == v1 || v2 === v3 || v2 == v4 || v2 == v5 || v2 == v6 || v2 == v7 || v2 == v8 || v2 == v9)
-			    		{
-			    		
-			    		$('#quaquantity2').val('');
-			    		 $('#dvPa12').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa12').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			     $('#quantity3').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity0000').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v3 == v1 || v3 === v2 || v3 == v4 || v3 == v5 || v3 == v6 || v3 == v7 || v3 == v8 || v3 == v9)
-			    		{
-			    		
-			    		$('#quantity3').val('');
-			    		 $('#dvPa13').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa13').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			    $('#quantity4').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v4 == v1 || v4 === v2 || v4 == v3 || v4 == v5 || v4 == v6 || v4 == v7 || v4 == v8 || v4 == v9)
-			    		{
-			    		
-			    		$('#quantit4').val('');
-			    		 $('#dvPa14').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa14').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			    $('#quantity5').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v5 == v1 || v5 === v2 || v5 == v3 || v5 == v4 || v5 == v6 || v5 == v7 || v5 == v8 || v5 == v9)
-			    		{
-			    		
-			    		$('#quantity5').val('');
-			    		 $('#dvPa15').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa15').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    $('#quantity6').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v6 == v1 || v6 === v2 || v6 == v3 || v6 == v4 || v6 == v5 || v6 == v7 || v6 == v8 || v6 == v9)
-			    		{
-			    		
-			    		$('#quantity6').val('');
-			    		 $('#dvPa16').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa16').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			     $('#quantity7').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v7 == v1 || v7 === v2 || v7 == v3 || v7 == v4 || v7 == v5 || v7 == v6 || v7 == v8 || v7 == v9)
-			    		{
-			    		
-			    		$('#quantity7').val('');
-			    		 $('#dvPa17').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa17').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			     $('#quantity8').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v8 == v1 || v8 === v2 || v8 == v3 || v8 == v4 || v8 == v5 || v8 == v6 || v8 == v7 || v8 == v9)
-			    		{
-			    		
-			    		$('#quantity8').val('');
-			    		 $('#dvPa18').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa18').empty();
-			    	}
-			    		   
-			    }) 
-			    
-			    
-			     $('#quantity9').keyup(function()
-			    		{
-			    	
-			    	
-			    	var v1 = $('#quantity1').val();
-			    	var v2 = $('#quantity2').val();
-			    	var v3 = $('#quantity3').val();
-			    	var v4 = $('#quantity4').val();
-			    	var v5 = $('#quantity5').val();
-			    	var v6 = $('#quantity6').val();
-			    	var v7 = $('#quantity7').val();
-			    	var v8 = $('#quantity8').val();
-			    	var v9 = $('#quantity9').val();
-			    	
-			    	
-			    	
-			    	if(v9 == v1 || v9 === v2 || v9 == v3 || v9 == v4 || v9 == v5 || v9 == v6 || v9 == v7 || v9 == v8)
-			    		{
-			    		
-			    		$('#quantity9').val('');
-			    		 $('#dvPa19').text('number exist');
-			    		}
-			    	else{
-			    		
-			    		$('#dvPa19').empty();
-			    	}
-			    		   
-			    })  */
-			
 			var sortUsersList;
+			var sortHotelsList;
+			var sortTemplatesList;  
 			 
 			$('#userSearch').keyup(function(e){
 				
@@ -8876,11 +8433,110 @@ $('#updateAdminUser').click(function(){
 					
 				}
 				
+				
+				
+				function hotelsSortOrder(prop){
+					
+					sortHotelsList.sort( predicatBy(prop) );
+					$(".searchResults").empty();
+					var result = sortHotelsList;
+					 var tableDetails = "<tr>"+
+						"<td style='padding: 6px 0px 0px 0px;text-align:center' onclick='hotelsSortOrder(this.id)' id='name'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Name</b></td>"+
+						"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='hotelId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Id</b></td>"+
+						"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Site ID</b></td>"+
+						"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='zipcode'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Zip/Postal Code</b></td>"+
+						"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Name</b></td>"+
+						"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='adminName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Admin</b></td>"+
+						"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='email'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Email</b></td>"+
+						"</tr>";
+		    	  for(var i=0;i<result.length;i++)
+		    	  {
+		    		  if(result[i].groupName == null)
+		    		  {
+		    			  result[i].groupName = "";
+		    		  }
+		    		  if(result[i].adminName == null)
+		    		  {
+		    			  result[i].adminName = "";
+		    		  }
+		    		  if(result[i].email == null)
+		    		  {
+		    			  result[i].email = "";
+		    		  }
+		    		  
+		    		  var table = "<tr>"+
+							"<td style='padding: 6px 0px 0px 0px;text-align:center'> <a onclick='loading()' style='color:#337ab7' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"'>"+
+							""+result[i].name+""+
+							"</a>"+
+							"</td>"+
+							"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+							""+result[i].hotelId+""+
+							"</a>"+
+							"</td>"+
+							"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+							""+result[i].groupId+""+
+							"</a>"+
+							"</td>"+
+							"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+							""+result[i].zipcode+""+
+							"</a>"+
+							"</td>"+
+							"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+							""+result[i].groupName+""+
+							"</a>"+
+							"</td>"+
+							"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+							""+result[i].adminName+""+
+							"</a>"+
+							"</td>"+
+							"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+							""+result[i].email+""+
+							"</a>"+
+							"</td>"+
+							
+						"</tr>";
+		    		  tableDetails = tableDetails+table;
+		    		  
+		    	  }
+		    	  $(".searchResults").append("<tbody style='font-size:14px' id='headings'>"+tableDetails+"</tbody>");
+					
+				}
+				
+				function templatesSortOrder(prop){
+					
+					sortTemplatesList.sort( predicatBy(prop) );
+					$("#templateSearchResults").empty();
+					var result = sortTemplatesList;
+					var tableDetails = "<tr>"+
+							"<td style='padding: 6px 0px 0px 30px;' onclick='templatesSortOrder(this.id)' id='templateName' ><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Name</b></td>"+
+							"<td style='padding:10px 0' onclick='templatesSortOrder(this.id)' id='templateId' ><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Id</b></td>"+
+						"</tr>";
+			    	  for(var i=0;i<result.length;i++)
+			    	  {
+			    		  var table = "<tr>"+
+			    		  "<td style='padding: 6px 0px 0px 30px;' > <a style='color:#337ab7' onclick='templateLoading()' href='viewTemplates?user=${user}&userName=${userName}&tempId="+result[i].templateId+"'>"+
+					   	      ""+result[i].templateName+"</a>"+
+					   	  "</td>"+
+					   	  "<td style='padding:10px 0' > <a onclick='templateLoading()' href='viewTemplates?user=${user}&userName=${userName}&tempId="+result[i].templateIId+"' style='color:#337ab7'>"+
+					   	     ""+result[i].templateId+"</a>"+
+					   	  "</td>"+
+								
+							"</tr>";
+			    		  tableDetails = tableDetails+table;
+			    		  
+			    	  }
+			    	  console.log(tableDetails);
+			    	  $("#templateSearchResults").append("<tbody style='font-size:14px'>"+tableDetails+"</tbody>");
+					 
+					
+				}
+				
+				
 				function predicatBy(prop){
 					   return function(a,b){
-					      if( a[prop] > b[prop]){
+					      if( a[prop].toLowerCase() > b[prop].toLowerCase()){
 					          return 1;
-					      }else if( a[prop] < b[prop] ){
+					      }else if( a[prop].toLowerCase() < b[prop].toLowerCase() ){
 					          return -1;
 					      }
 					      return 0;
@@ -8998,7 +8654,7 @@ $('#updateAdminUser').click(function(){
 					     
 					      success :function(result) {
 					    	  $("#templateSearchResults").empty();
-					    	  
+					    	  sortTemplatesList = result;
 					    	  console.log(result.length);
 					    	  if(result.length == 0)
 					    	  {					    		  
@@ -9009,10 +8665,10 @@ $('#updateAdminUser').click(function(){
 					    	  {
 					    		  $('#noTemplateResults').empty();
 					    		  $('#templateSpin').remove();
-						    	  var tableDetails = "<tr>"+
-										"<td style='padding:10px 0 0 30px'><b style='color:#337ab7;font-size:18px'>Template Name</b></td>"+
-										"<td style='padding:10px 0;'><b style='color:#337ab7;font-size:18px'>Template Id</b></td>"+
-									"</tr>";
+					    		  var tableDetails = "<tr>"+
+									"<td style='padding:10px 0 0 30px' onclick='templatesSortOrder(this.id)' id='templateName'><b style='color:#337ab7;font-size:18px'>Template Name</b></td>"+
+									"<td style='padding:10px 0;' onclick='templatesSortOrder(this.id)' id='templateId'><b style='color:#337ab7;font-size:18px'>Template Id</b></td>"+
+								"</tr>";
 						    	  for(var i=0;i<result.length;i++)
 						    	  {
 						    		  var table = "<tr>"+
@@ -9544,68 +9200,7 @@ $('#updateAdminUser').click(function(){
 		</script>
 		<script >
 		function closeDiv(){
-// 			document.getElementById("quantity0000").value = "";
-// 			document.getElementById("quantity0001").value = "";
-// 			document.getElementById("quantity0002").value = "";
-// 			document.getElementById("quantity0003").value = "";
-// 			document.getElementById("quantity0004").value = "";
-// 			document.getElementById("quantity0005").value = "";
-// 			document.getElementById("quantity0006").value = "";
-// 			document.getElementById("quantity0007").value = "";
-// 			document.getElementById("quantity0008").value = "";
-			
 
-			 
-			
-			
-// 			document.getElementById("quantity20").value = "";
-// 			document.getElementById("quantity2").value = "";
-// 			 document.getElementById("quantity3").value = "";
-// 			 document.getElementById("quantity4").value = "";
-// 			 document.getElementById("quantity5").value = "";
-// 			 document.getElementById("quantity6").value = "";
-// 			 document.getElementById("quantity7").value = "";
-// 			 document.getElementById("quantity8").value = "";
-// 			 document.getElementById("quantity").value = "";
-// 			 document.getElementById("test1350").checked = false;
-// 			 document.getElementById("test135").checked = false;
-// 			 document.getElementById("test107").checked = false;
-// 			 document.getElementById("test109").checked = false;
-// 			 document.getElementById("test111").checked = false;
-// 			 document.getElementById("test113").checked = false;
-// 			 document.getElementById("test115").checked = false;
-// 			 document.getElementById("test117").checked = false;
-// 			 document.getElementById("test119").checked = false;
-// 			 document.getElementById("test0000").checked = false;
-// 			 document.getElementById("test0001").checked = false;
-// 			 document.getElementById("test0002").checked = false;
-// 			 document.getElementById("test0003").checked = false;
-// 			 document.getElementById("test0004").checked = false;
-// 			 document.getElementById("test0005").checked = false;
-// 			 document.getElementById("test0006").checked = false;
-// 			 document.getElementById("test0007").checked = false;
-// 			 document.getElementById("test0008").checked = false;
-			 /* $('#quantity0000').hide();
-			 $('#quantity0001').hide();
-			 $('#quantity0002').hide();
-			 $('#quantity0003').hide();
-			 $('#quantity0004').hide();
-			 $('#quantity0005').hide();
-			 $('#quantity0006').hide();
-			 $('#quantity0007').hide();
-			 $('#quantity0008').hide();
-			 
-			 
-			 $('#quantity20').hide();
-			 
-			 $('#quantity2').hide();
-	 			 $('#quantity3').hide();
-				 $('#quantity4').hide();
-				 $('#quantity5').hide();
-	 			 $('#quantity6').hide();
-				 $('#quantity7').hide();
-	 			 $('#quantity8').hide();
-	 			 $('#quantity').hide();  */
 			 
 			 
 			 $('#modal29').hide();	
@@ -9853,22 +9448,7 @@ $('#updateAdminUser').click(function(){
     }
    });
   
-  /* jQuery('#superPhone').keyup(function () { 
-	    this.value = this.value.replace(/[^0-9()|+-\.]/g,'');
-	}); 
   
-  jQuery('#csPhone').keyup(function () { 
-	    this.value = this.value.replace(/[^0-9()|+-\.]/g,'');
-	}); 
-  
-  jQuery('#locationPhone').keyup(function () { 
-	    this.value = this.value.replace(/[^0-9()|+-\.]/g,'');
-	}); 
-  
-  jQuery('#updatePhone').keyup(function () { 
-	    this.value = this.value.replace(/[^0-9()|+-\.]/g,'');
-	}); 
-   */
   
 
 </script>

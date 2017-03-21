@@ -6983,7 +6983,7 @@ $('#updateAdminDetails').click(function(){
 						     
 						      success :function(result) {
 						    	  $(".searchResults").empty();
-						    	  
+						    	  sortHotelsList = result;
 						    	  console.log(result.length);
 						    	  if(result.length == 0)
 						    	  {					    		  
@@ -6994,14 +6994,14 @@ $('#updateAdminDetails').click(function(){
 						    	  {
 						    		  $('.noResults').empty();
 						    		  $('.tbody').remove();
-							    	  var tableDetails = "<tr>"+
-										"<td style='padding: 6px 0px 0px 0px;;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Name</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Id</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Group Site ID</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Zip/Postal Code</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Group Name</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Admin</b></td>"+
-										"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Email</b></td>"+
+						    		  var tableDetails = "<tr>"+
+										"<td style='padding: 6px 0px 0px 0px;text-align:center' onclick='hotelsSortOrder(this.id)' id='name'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Name</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='hotelId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Id</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Site ID</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='zipcode'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Zip/Postal Code</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Name</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='adminName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Admin</b></td>"+
+										"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='email'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Email</b></td>"+
 										"</tr>";
 							    	  for(var i=0;i<result.length;i++)
 							    	  {
@@ -7087,7 +7087,7 @@ $('#updateAdminDetails').click(function(){
 					     
 					      success :function(result) {
 					    	  $(".searchResults").empty();
-					    	  
+					    	  sortHotelsList = result;
 					    	  console.log(result.length);
 					    	  if(result.length == 0)
 					    	  {					    		  
@@ -7098,14 +7098,14 @@ $('#updateAdminDetails').click(function(){
 					    	  {
 					    		  $('#noResults').empty();
 					    		  $('#tbody').remove();
-						    	  var tableDetails = "<tr>"+
-									"<td style='padding: 6px 0px 0px 30px;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Name</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Id</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Group Site ID</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Zip/Postal Code</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Group Name</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Hotel Admin</b></td>"+
-									"<td style='padding:10px 0;text-align:center'><b style='color:#337ab7;font-size:18px'>Email</b></td>"+
+					    		  var tableDetails = "<tr>"+
+									"<td style='padding: 6px 0px 0px 0px;text-align:center' onclick='hotelsSortOrder(this.id)' id='name'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Name</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='hotelId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Id</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Site ID</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='zipcode'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Zip/Postal Code</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Name</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='adminName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Admin</b></td>"+
+									"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='email'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Email</b></td>"+
 									"</tr>";
 						    	  for(var i=0;i<result.length;i++)
 						    	  {
@@ -7208,7 +7208,7 @@ $('#updateAdminDetails').click(function(){
 					     
 					      success :function(result) {
 					    	  $("#templateSearchResults").empty();
-					    	  
+					    	  sortTemplatesList = result;
 					    	  console.log(result.length);
 					    	  if(result.length == 0)
 					    	  {					    		  
@@ -7219,10 +7219,10 @@ $('#updateAdminDetails').click(function(){
 					    	  {
 					    		  $('#noTemplateResults').empty();
 					    		  $('#templateSpin').remove();
-						    	  var tableDetails = "<tr>"+
-										"<td style='padding: 6px 0px 0px 30px;''><b style='color:#337ab7;font-size:18px'>Template Name</b></td>"+
-										"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Template Id</b></td>"+
-									"</tr>";
+					    		  var tableDetails = "<tr>"+
+									"<td style='padding:10px 0 0 30px;' onclick='templatesSortOrder(this.id)' id='templateName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Name</b></td>"+
+									"<td style='padding:10px 0' onclick='templatesSortOrder(this.id)' id='templateId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Id</b></td>"+
+								"</tr>";
 						    	  for(var i=0;i<result.length;i++)
 						    	  {
 						    		  var table = "<tr>"+
@@ -7866,7 +7866,9 @@ $('#updateAdminDetails').click(function(){
 			    
 			    
 			var sortUsersList;
-			    
+			var sortHotelsList;
+			var sortTemplatesList;  
+			var sortGroupsList;
 			
 			$('#userSearch').keyup(function(e){
 				
@@ -8099,11 +8101,107 @@ $('#updateAdminDetails').click(function(){
 				
 			}
 			
+			function hotelsSortOrder(prop){
+				
+				sortHotelsList.sort( predicatBy(prop) );
+				$(".searchResults").empty();
+				var result = sortHotelsList;
+				 var tableDetails = "<tr>"+
+					"<td style='padding: 6px 0px 0px 0px;text-align:center' onclick='hotelsSortOrder(this.id)' id='name'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Name</b></td>"+
+					"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='hotelId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Id</b></td>"+
+					"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupId'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Site ID</b></td>"+
+					"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='zipcode'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Zip/Postal Code</b></td>"+
+					"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='groupName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Group Name</b></td>"+
+					"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='adminName'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Hotel Admin</b></td>"+
+					"<td style='padding:10px 0;text-align:center' onclick='hotelsSortOrder(this.id)' id='email'><b style='color:#337ab7;font-size:18px;cursor:pointer'>Email</b></td>"+
+					"</tr>";
+	    	  for(var i=0;i<result.length;i++)
+	    	  {
+	    		  if(result[i].groupName == null)
+	    		  {
+	    			  result[i].groupName = "";
+	    		  }
+	    		  if(result[i].adminName == null)
+	    		  {
+	    			  result[i].adminName = "";
+	    		  }
+	    		  if(result[i].email == null)
+	    		  {
+	    			  result[i].email = "";
+	    		  }
+	    		  
+	    		  var table = "<tr>"+
+						"<td style='padding: 6px 0px 0px 0px;text-align:center'> <a onclick='loading()' style='color:#337ab7' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"'>"+
+						""+result[i].name+""+
+						"</a>"+
+						"</td>"+
+						"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+						""+result[i].hotelId+""+
+						"</a>"+
+						"</td>"+
+						"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+						""+result[i].groupId+""+
+						"</a>"+
+						"</td>"+
+						"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+						""+result[i].zipcode+""+
+						"</a>"+
+						"</td>"+
+						"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+						""+result[i].groupName+""+
+						"</a>"+
+						"</td>"+
+						"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+						""+result[i].adminName+""+
+						"</a>"+
+						"</td>"+
+						"<td style='padding:10px 0;text-align:center'> <a onclick='loading()' href='select?user=${user}&amp;userName=${userName}&amp;locId="+result[i].hotelId+"' style='color:#337ab7'>"+
+						""+result[i].email+""+
+						"</a>"+
+						"</td>"+
+						
+					"</tr>";
+	    		  tableDetails = tableDetails+table;
+	    		  
+	    	  }
+	    	  $(".searchResults").append("<tbody style='font-size:14px' id='headings'>"+tableDetails+"</tbody>");
+				
+			}
+			
+			function templatesSortOrder(prop){
+				
+				sortTemplatesList.sort( predicatBy(prop) );
+				$("#templateSearchResults").empty();
+				var result = sortTemplatesList;
+				var tableDetails = "<tr>"+
+						"<td style='padding: 6px 0px 0px 30px;' onclick='templatesSortOrder(this.id)' id='templateName' ><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Name</b></td>"+
+						"<td style='padding:10px 0' onclick='templatesSortOrder(this.id)' id='templateId' ><b style='color:#337ab7;font-size:18px;cursor:pointer'>Template Id</b></td>"+
+					"</tr>";
+		    	  for(var i=0;i<result.length;i++)
+		    	  {
+		    		  var table = "<tr>"+
+		    		  "<td style='padding: 6px 0px 0px 30px;' > <a style='color:#337ab7' onclick='templateLoading()' href='viewTemplates?user=${user}&userName=${userName}&tempId="+result[i].templateId+"'>"+
+				   	      ""+result[i].templateName+"</a>"+
+				   	  "</td>"+
+				   	  "<td style='padding:10px 0' > <a onclick='templateLoading()' href='viewTemplates?user=${user}&userName=${userName}&tempId="+result[i].templateIId+"' style='color:#337ab7'>"+
+				   	     ""+result[i].templateId+"</a>"+
+				   	  "</td>"+
+							
+						"</tr>";
+		    		  tableDetails = tableDetails+table;
+		    		  
+		    	  }
+		    	  console.log(tableDetails);
+		    	  $("#templateSearchResults").append("<tbody style='font-size:14px'>"+tableDetails+"</tbody>");
+				 
+				
+			}
+			
 			function predicatBy(prop){
 				   return function(a,b){
-				      if( a[prop] > b[prop]){
+				      if( a[prop].toLowerCase() > b[prop].toLowerCase()){
 				          return 1;
-				      }else if( a[prop] < b[prop] ){
+				      }else if( a[prop].toLowerCase() < b[prop].toLowerCase() ){
 				          return -1;
 				      }
 				      return 0;
@@ -8219,7 +8317,7 @@ $('#updateAdminDetails').click(function(){
 					     
 					      success :function(result) {
 					    	  $("#templateSearchResults").empty();
-					    	  
+					    	  sortTemplatesList = result;
 					    	  console.log(result.length);
 					    	  if(result.length == 0)
 					    	  {					    		  
@@ -8230,10 +8328,10 @@ $('#updateAdminDetails').click(function(){
 					    	  {
 					    		  $('#noTemplateResults').empty();
 					    		  $('#templateSpin').remove();
-						    	  var tableDetails = "<tr>"+
-										"<td style='padding: 6px 0px 0px 30px;''><b style='color:#337ab7;font-size:18px'>Template Name</b></td>"+
-										"<td style='padding:10px 0'><b style='color:#337ab7;font-size:18px'>Template Id</b></td>"+
-									"</tr>";
+					    		  var tableDetails = "<tr>"+
+									"<td style='padding:10px 0 0 30px' onclick='templatesSortOrder(this.id)' id='templateName'><b style='color:#337ab7;font-size:18px'>Template Name</b></td>"+
+									"<td style='padding:10px 0;' onclick='templatesSortOrder(this.id)' id='templateId'><b style='color:#337ab7;font-size:18px'>Template Id</b></td>"+
+								"</tr>";
 						    	  for(var i=0;i<result.length;i++)
 						    	  {
 						    		  var table = "<tr>"+
